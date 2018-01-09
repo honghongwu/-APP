@@ -28,9 +28,9 @@
       ...mapState(['Classify'])
     },
     mounted(){
-//      this.$store.dispatch('receive_Classify',()=>{
-//        this.$nextTick(() => {new BScroll(this.$refs.leftWrapper, {probeType: 2, click: true})})
-//      })
+      this.$store.dispatch('receive_Classify',()=>{
+        this.$nextTick(() => {new BScroll(this.$refs.leftWrapper, {probeType: 2, click: true})})
+      })
     }
   }
 </script>

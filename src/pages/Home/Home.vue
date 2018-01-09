@@ -148,7 +148,7 @@
     methods: {
       toggleShow(){
         this.isShow=!this.isShow
-      }
+      },
     },
     components:{
       'ele-header':header,
@@ -159,11 +159,14 @@
       ...mapState(['home','homeB'])
     },
     mounted(){
-      this.$store.dispatch('receive_homeB')
+      this.$store.dispatch('receive_homeB',()=>{
+        this.$nextTick(() => { // 回调函数在界面更新之后立即执行
+          let picsScroll = new BScroll(this.$refs.picsWrapper, {click: true, scrollX: true})
+        })
+      })
       this.$store.dispatch('receive_home',()=>{
         this.$nextTick(() => { // 回调函数在界面更新之后立即执行
      let homeScroll = new BScroll(this.$refs.HomeWrapper, {probeType: 2, click: true})
-     let picsScroll = new BScroll(this.$refs.picsWrapper, {click: true, scrollX: true})
       })
      })
     }
@@ -303,6 +306,12 @@
   background-image url("../../components/img/godog.png")
   background-repeat no-repeat
   background-size 30%
+  animation-name eyeFade
+
+  /*&.eyeFade-enter-active,&.eyeFade-leave-active
+    transform:translate(0,0)
+  &.eyeFade-enter,&.eyeFade-leave-to
+    transform:translate(-100px,0)*/
 .mask
   z-index 100
   position fixed

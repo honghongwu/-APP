@@ -38,6 +38,29 @@ module.exports = {
           '^/index': '/'
         }
       },
+      //短信验证
+      '/item': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/item': '/'
+        }
+      },
+      //配置common/utils/env.js???
+      '/getBase': {
+        target: 'http://cangdu.org:8001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/getBase': '/'
+        }
+      },
+      '/reginste': {
+        target: 'http://cangdu.org:8001',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/reginste': '/'
+        }
+      }
     },
 
     // Various Dev Server settings
@@ -47,20 +70,8 @@ module.exports = {
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
-
-    // Use Eslint Loader?
-    // If true, your code will be linted during bundling and
-    // linting errors and warnings will be shown in the console.
     useEslint: true,
-    // If true, eslint errors and warnings will also be shown in the error overlay
-    // in the browser.
     showEslintErrorsInOverlay: false,
-
-    /**
-     * Source Maps
-     */
-
-    // https://webpack.js.org/configuration/devtool/#development
     devtool: 'eval-source-map',
 
     // If you have problems debugging vue-files in devtools,

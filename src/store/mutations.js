@@ -4,6 +4,7 @@ import {
   RECEIVE_HOMEB,
   RECEIVE_CLASSIFY,
   RECEIVE_CLASSIFYB,
+  RECEIVE_REGINSTE,
 } from './mutation-types'
 
 export default {
@@ -22,6 +23,13 @@ export default {
   //分类子
   [RECEIVE_CLASSIFYB](state, {ClassifyB}) {
     state.ClassifyB = ClassifyB
-  }
-
+  },
+  //注册
+  [RECEIVE_REGINSTE](state, {ClassifyB}) {
+    state.ClassifyB = ClassifyB
+  },
+  //验证
+  // updateUserInfo(state, newUserInfo) {
+  //   state.userInfo = newUserInfo;
+  // }
 }

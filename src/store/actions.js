@@ -2,13 +2,15 @@ import {
   receive_home,
   receive_homeB,
   receive_Classify,
-  receive_ClassifyB
+  receive_ClassifyB,
+  receive_reginste,
 } from '../api/index.js'
 import {
   RECEIVE_HOME,
   RECEIVE_HOMEB,
   RECEIVE_CLASSIFY,
-  RECEIVE_CLASSIFYB
+  RECEIVE_CLASSIFYB,
+  RECEIVE_REGINSTE
 } from './mutation-types'
 
 export default {
@@ -29,6 +31,13 @@ export default {
     const result = await receive_Classify()
     const Classify = result
     commit(RECEIVE_CLASSIFY, {Classify})
+    cb && cb()
+  },
+  async receive_reginste({commit},obj, cb) {
+    const result = await receive_reginste(obj)
+    const ClassifyB = result
+    commit(RECEIVE_CLASSIFYB, {ClassifyB})
+    console.log(ClassifyB.cate_list[0].list);
     cb && cb()
   },
   async receive_ClassifyB({commit},obj, cb) {
